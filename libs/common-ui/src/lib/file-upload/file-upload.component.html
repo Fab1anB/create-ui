@@ -1,0 +1,11 @@
+<div
+  ng2FileDrop
+  [class.file-over-dropzone]="hasBaseDropZoneOver"
+  (fileOver)="fileOverBase($event)"
+  [uploader]="uploader"
+  class="dropzone flex  w-full items-center justify-center"
+>
+  <span class="w-full flex flex-grow justify-file-upload-content-center">Drop images here</span>
+</div>
+<input type="file" class="w-10/12 m-4" ng2FileSelect [uploader]="uploader" multiple />
+<span *ngFor="let item of  uploader.getNotUploadedItems()">{{ item?.name }}</span>
