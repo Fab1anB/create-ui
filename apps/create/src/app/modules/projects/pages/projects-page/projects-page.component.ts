@@ -1,15 +1,10 @@
-import {Component} from '@angular/core';
-import {ProjectApiService} from "../../services/project-api.service";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'create-ui-projects-page',
   templateUrl: './projects-page.component.html',
-  styleUrls: ['./projects-page.component.scss']
+  styleUrls: ['./projects-page.component.scss'],
 })
 export class ProjectsPageComponent {
-
-  projects$ = this.projectsService.getProjects();
-
-  constructor(private projectsService: ProjectApiService) {
-}
+  constructor() {}
 }

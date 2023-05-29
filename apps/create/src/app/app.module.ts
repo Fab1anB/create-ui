@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import {ProjectsModule} from "./modules/projects/projects.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ViewProjectsModule} from "./modules/view-projects/view-projects.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     ProjectsModule,
+    ViewProjectsModule,
     BrowserAnimationsModule
   ],
   providers: [],

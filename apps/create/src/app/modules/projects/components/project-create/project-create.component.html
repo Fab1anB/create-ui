@@ -1,21 +1,21 @@
 <form [formGroup]="form()" class="flex flex-col items-center w-full">
   <create-ui-file-upload
-    class="w-10/12 m-4"
+    class="w-11/12 m-4"
     #fileUploadComponent
   ></create-ui-file-upload>
-  <mat-form-field class="w-10/12">
+  <mat-form-field class="w-11/12">
     <mat-label>Title</mat-label>
     <input matInput formControlName="title" />
   </mat-form-field>
-  <mat-form-field class="w-10/12">
+  <mat-form-field class="w-11/12">
     <mat-label>Subtitle</mat-label>
     <input matInput formControlName="subtitle" />
   </mat-form-field>
-  <mat-form-field class="w-10/12">
+  <mat-form-field class="w-11/12">
     <mat-label>Description</mat-label>
     <textarea matInput formControlName="description"></textarea>
   </mat-form-field>
-  <mat-form-field class="w-10/12">
+  <mat-form-field class="w-11/12">
     <mat-label>Categories</mat-label>
     <mat-chip-grid #chipGrid aria-label="Enter fruits">
       <mat-chip-row

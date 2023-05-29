@@ -1,0 +1,11 @@
+<mat-card>
+  <img mat-card-image [src]="project?.resultImage">
+    <mat-card-title> {{ project?.title }} </mat-card-title>
+  <mat-card-subtitle> {{ project?.subtitle }}</mat-card-subtitle>
+    <mat-card-actions>
+      <div class="flex flex-wrap gap-1">
+        <mat-chip *ngFor="let category of project?.categories || []">  {{category.title }}</mat-chip>
+
+      </div>
+    </mat-card-actions>
+</mat-card>
