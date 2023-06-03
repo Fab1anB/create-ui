@@ -1,0 +1,22 @@
+<span
+  *ngFor="let difficulty of difficultyArray(); let index = index"
+  (mouseleave)="onMouseLeave()"
+>
+  <mat-icon (click)="onSelectDifficulty(index)">
+    <span
+      class="cursor-pointer"
+      (mouseover)="onMouseOver($event)"
+      [id]="index"
+      *ngIf="difficulty.isActive"
+    >
+      build
+    </span>
+    <span
+      (mouseover)="onMouseOver($event)"
+      [id]="index"
+      *ngIf="!difficulty.isActive"
+    >
+      radio_button_unchecked
+    </span>
+  </mat-icon>
+</span>

@@ -1,14 +1,7 @@
-import {
-  Component,
-  effect,
-  inject,
-  Input,
-  signal,
-  ViewChild,
-} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { FileUploadComponent } from '../../../../../../../../libs/common-ui/src/lib/file-upload/file-upload.component';
-import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
+import {Component, effect, inject, Input, signal, ViewChild,} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
+import {FileUploadComponent} from '../../../../../../../../libs/common-ui/src/lib/file-upload/file-upload.component';
+import {MatChipEditedEvent, MatChipInputEvent} from '@angular/material/chips';
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {Project, ProjectCategory} from "../../models/project";
 
@@ -28,6 +21,8 @@ export class ProjectCreateComponent {
 
   public addOnBlur = true;
   public readonly separatorKeysCodes = [ENTER, COMMA] as const;
+
+  public difficulty = signal(0);
 
   constructor() {
     effect(() => {
@@ -88,9 +83,14 @@ export class ProjectCreateComponent {
           form.append('id', this.project?.id?.toString());
         }
         form.append('categories', JSON.stringify(this.form().get('categories')?.value));
+        form.append('difficulty', this.difficulty());
       };
       this.fileUploadComponent.uploader.uploadAll();
     }
+  }
+
+  difficultyChange($event: number) {
+   this.difficulty.set($event);
   }
 }
 

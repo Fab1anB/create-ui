@@ -15,9 +15,15 @@
     <mat-label>Description</mat-label>
     <textarea matInput formControlName="description"></textarea>
   </mat-form-field>
+  <create-ui-project-difficulty
+    (difficultyChange)="difficultyChange($event)"
+    [editable]="true"
+    class="w-11/12"
+    [difficulty]="2"
+  ></create-ui-project-difficulty>
   <mat-form-field class="w-11/12">
     <mat-label>Categories</mat-label>
-    <mat-chip-grid #chipGrid aria-label="Enter fruits">
+    <mat-chip-grid #chipGrid aria-label="Enter category">
       <mat-chip-row
         *ngFor="let category of form().get('categories')?.value || []"
         (removed)="remove(category.title)"

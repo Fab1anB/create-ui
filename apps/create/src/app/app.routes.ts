@@ -1,8 +1,8 @@
 import { Route } from '@angular/router';
-import { ProjectsPageComponent } from './modules/projects/pages/projects-page/projects-page.component';
+import { CreateProjectViewComponent } from './modules/create-project/pages/create-project-view/create-project-view.component';
 import { ProjectsViewComponent } from './modules/view-projects/pages/projects-view/projects-view.component';
 
 export const appRoutes: Route[] = [
-  { path: 'create', component: ProjectsPageComponent },
+  { path: 'create', component: CreateProjectViewComponent },
   { path: '', component: ProjectsViewComponent },
 ];

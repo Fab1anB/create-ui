@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ProjectsApiService } from '../../services/projects-api.service';
 
 @Component({
-  selector: 'create-ui-projects-view',
+  selector: 'create-ui-create-project-view',
   templateUrl: './projects-view.component.html',
   styleUrls: ['./projects-view.component.scss'],
 })

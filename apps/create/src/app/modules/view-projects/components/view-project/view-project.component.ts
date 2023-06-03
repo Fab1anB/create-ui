@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {Project} from "../../../projects/models/project";
+import { Component, Input } from '@angular/core';
+import { Project } from '../../../create-project/models/project';
 
 @Component({
   selector: 'create-ui-view-project',
