@@ -11,12 +11,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {ProjectViewComponent} from './components/project-view/project-view.component';
+import {ProjectCategoryChipsComponent} from './components/project-category-chips/project-category-chips.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
     CreateProjectViewComponent,
     ProjectCreateComponent,
     ProjectViewComponent,
+    ProjectCategoryChipsComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +32,7 @@ import {ProjectViewComponent} from './components/project-view/project-view.compo
     MatButtonModule,
     MatChipsModule,
     MatIconModule,
+    MatAutocompleteModule,
   ],
 })
 export class CreateProjectModule {}

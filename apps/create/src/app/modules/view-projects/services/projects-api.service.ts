@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Project} from "../../create-project/models/project";
 
@@ -11,6 +11,6 @@ export class ProjectsApiService {
   constructor(private http: HttpClient) {}
 
   public getProjects() {
-    return this.http.get<Project []>(this.baseUrl + '/projects');
+    return this.http.post<Project []>(this.baseUrl + '/projects/search', []);
   }
 }
