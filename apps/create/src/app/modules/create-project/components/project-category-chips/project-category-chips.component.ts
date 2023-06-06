@@ -25,7 +25,7 @@ export class ProjectCategoryChipsComponent {
       map((categories) => categories.map((c) => c.title))
     );
 
-  categories: string[] = ['Holz'];
+  categories: string[] = [];
 
   @ViewChild('categoryInput') categoryInput:
     | ElementRef<HTMLInputElement>

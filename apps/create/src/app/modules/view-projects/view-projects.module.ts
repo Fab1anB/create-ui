@@ -7,11 +7,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {TrendingSearchesComponent} from './components/trending-searches/trending-searches.component';
 import {ChipsSearchComponent} from './components/chips-search/chips-search.component';
-import {InputSearchComponent} from './components/input-search/input-search.component';
 import {HomeViewComponent} from './pages/home-view/home-view.component';
-import {MatIconModule} from "@angular/material/icon";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms';
+import {CreateProjectModule} from '../create-project/create-project.module';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,19 @@ import {MatInputModule} from "@angular/material/input";
     ProjectPreviewComponent,
     TrendingSearchesComponent,
     ChipsSearchComponent,
-    InputSearchComponent,
     HomeViewComponent,
   ],
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatChipsModule, MatIconModule, MatFormFieldModule, MatInputModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CreateProjectModule,
+  ],
   exports: [ProjectsViewComponent, ProjectPreviewComponent],
 })
 export class ViewProjectsModule {}

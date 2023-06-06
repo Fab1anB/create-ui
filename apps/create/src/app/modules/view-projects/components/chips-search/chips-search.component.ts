@@ -16,7 +16,7 @@ export class ChipsSearchComponent {
   @Output()
   public readonly selectCategory = new EventEmitter<string>();
 
-  staticChips: string[] = ['Holz', 'Metall', 'Kunststoff', 'Textil'];
+  staticChips: string[] = ['Balkon', 'Wohnzimmer', 'Küche', 'Terrasse'];
 
   trendingChips: string[] = ['Beton', 'Glas', 'Keramik', 'Papier'];
 

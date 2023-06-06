@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
-import { take } from 'rxjs';
+import {Component} from '@angular/core';
+import {FileUploader} from 'ng2-file-upload';
+import {take} from 'rxjs';
 
 @Component({
   selector: 'create-ui-file-upload',

@@ -15,24 +15,27 @@ import {ProjectCategoryChipsComponent} from './components/project-category-chips
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
-  declarations: [
-    CreateProjectViewComponent,
-    ProjectCreateComponent,
-    ProjectViewComponent,
-    ProjectCategoryChipsComponent,
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    NgOptimizedImage,
-    CommonUiModule,
-    MatButtonModule,
-    MatChipsModule,
-    MatIconModule,
-    MatAutocompleteModule,
-  ],
+    declarations: [
+        CreateProjectViewComponent,
+        ProjectCreateComponent,
+        ProjectViewComponent,
+        ProjectCategoryChipsComponent,
+    ],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgOptimizedImage,
+        CommonUiModule,
+        MatButtonModule,
+        MatChipsModule,
+        MatIconModule,
+        MatAutocompleteModule,
+    ],
+    exports: [
+        ProjectCategoryChipsComponent
+    ]
 })
 export class CreateProjectModule {}
