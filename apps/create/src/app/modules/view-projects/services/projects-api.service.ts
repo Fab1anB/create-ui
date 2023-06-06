@@ -10,7 +10,7 @@ export class ProjectsApiService {
 
   constructor(private http: HttpClient) {}
 
-  public getProjects() {
-    return this.http.post<Project []>(this.baseUrl + '/projects/search', []);
+  public getProjects(categories: string[] = []) {
+    return this.http.post<Project []>(this.baseUrl + '/projects/search', categories);
   }
 }

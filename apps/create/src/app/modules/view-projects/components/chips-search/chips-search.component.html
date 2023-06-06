@@ -1,0 +1,6 @@
+
+<mat-chip-grid #chipGrid aria-label="search predefined categories">
+  <mat-chip-row *ngFor="let category of categories()" (click)="onSelectCategory(category)">
+    {{ category }}
+  </mat-chip-row>
+</mat-chip-grid>

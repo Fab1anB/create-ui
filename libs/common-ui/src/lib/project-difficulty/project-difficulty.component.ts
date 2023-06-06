@@ -5,7 +5,7 @@ import {Component, computed, EventEmitter, Input, OnInit, Output, Signal, signal
   templateUrl: './project-difficulty.component.html',
   styleUrls: ['./project-difficulty.component.scss'],
 })
-export class ProjectDifficultyComponent implements OnInit{
+export class ProjectDifficultyComponent implements OnInit {
   private _difficulty: WritableSignal<number | undefined> = signal(undefined);
   @Input()
   public set difficulty(value: number | undefined) {

@@ -1,1 +1,9 @@
- <router-outlet></router-outlet>
+<create-ui-navigation (toggleSidenav)="drawer.toggle()"></create-ui-navigation>
+<mat-drawer-container class="h-full">
+  <mat-drawer #drawer mode="side"
+    ><create-ui-menu></create-ui-menu
+  ></mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
