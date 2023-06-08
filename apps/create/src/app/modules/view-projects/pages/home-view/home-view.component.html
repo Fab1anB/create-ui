@@ -3,7 +3,7 @@
     <h2>What do you want to upgrade?</h2>
   <create-ui-chips-search
     (selectCategory)="search($event)"
-    [context]="'static'"
+    [chips]="staticChips"
   ></create-ui-chips-search>
   </div>
   <div class="flex flex-col w-full my-6">
@@ -23,7 +23,7 @@
     <h2>Trending searches</h2>
     <create-ui-chips-search
       (selectCategory)="search($event)"
-      [context]="'trending'"
+      [chips]="trendingChips$ | async"
     ></create-ui-chips-search>
   </div>
 </div>

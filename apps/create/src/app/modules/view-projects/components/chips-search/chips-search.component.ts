@@ -1,4 +1,4 @@
-import {Component, computed, EventEmitter, Input, Output, signal,} from '@angular/core';
+import {Component, EventEmitter, Input, Output,} from '@angular/core';
 
 @Component({
   selector: 'create-ui-chips-search',
@@ -6,23 +6,11 @@ import {Component, computed, EventEmitter, Input, Output, signal,} from '@angula
   styleUrls: ['./chips-search.component.scss'],
 })
 export class ChipsSearchComponent {
-  public _context = signal(this.context);
-
-  @Input()
-  public set context(value: 'static' | 'trending' | undefined) {
-    this._context.set(value);
-  }
 
   @Output()
   public readonly selectCategory = new EventEmitter<string>();
 
-  staticChips: string[] = ['Balkon', 'Wohnzimmer', 'Küche', 'Terrasse'];
-
-  trendingChips: string[] = ['Beton', 'Glas', 'Keramik', 'Papier'];
-
-  categories = computed(() =>
-    this._context() === 'static' ? this.staticChips : this.trendingChips
-  );
+  @Input() chips: string[] | null = null;
 
   onSelectCategory(category: string) {
     this.selectCategory.next(category);

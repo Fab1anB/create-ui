@@ -7,9 +7,9 @@ export const searchProjectsResolverFn: ResolveFn<any> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
-  return inject(ProjectsApiService).getProjects([
-    ...(route.queryParams['category'] ?? []),
-  ]);
+  const category = route.queryParams['category'];
+  const categories = typeof category === 'string' ? [category] : category;
+  return inject(ProjectsApiService).getProjects(categories);
 };
 
 @Component({
