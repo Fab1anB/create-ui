@@ -9,22 +9,10 @@
     <input matInput formControlName="title" />
   </mat-form-field>
   <mat-form-field class="w-11/12">
-    <mat-label>Subtitle</mat-label>
-    <input matInput formControlName="subtitle" />
-  </mat-form-field>
-  <mat-form-field class="w-11/12">
     <mat-label>Description</mat-label>
     <textarea matInput formControlName="description"></textarea>
   </mat-form-field>
-  <create-ui-project-difficulty
-    (difficultyChange)="difficultyChange($event)"
-    [editable]="true"
-    class="w-11/12"
-    [difficulty]="2"
-  ></create-ui-project-difficulty>
-  <create-ui-project-category-chips #projectCategoryChipsComponent class="w-11/12"></create-ui-project-category-chips>
-
   <button mat-flat-button class="w-1/2" [color]="'primary'" (click)="save()">
-    Save & Continue
+    Save
   </button>
 </form>

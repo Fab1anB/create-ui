@@ -1,9 +1,10 @@
 import {Component, effect, inject, Input, signal, ViewChild,} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {FileUploadComponent} from '../../../../../../../../libs/common-ui/src/lib/file-upload/file-upload.component';
-import {COMMA, ENTER} from "@angular/cdk/keycodes";
-import {Project, ProjectCategory} from "../../models/project";
-import {ProjectCategoryChipsComponent} from "../project-category-chips/project-category-chips.component";
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {Project, ProjectCategory} from '../../models/project';
+import {ProjectCategoryChipsComponent} from '../project-category-chips/project-category-chips.component';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'create-ui-project-create',
@@ -20,19 +21,24 @@ export class ProjectCreateComponent {
   public fileUploadComponent: FileUploadComponent | null = null;
 
   @ViewChild('projectCategoryChipsComponent')
-  public projectCategoryChipsComponent: ProjectCategoryChipsComponent | null = null;
+  public projectCategoryChipsComponent: ProjectCategoryChipsComponent | null =
+    null;
 
   public addOnBlur = true;
   public readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
   public difficulty = signal(0);
 
-  constructor() {
+  public uploadUrl: string | undefined;
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     effect(() => {
       if (this.project) {
         this.form().patchValue(this.project);
       }
     });
+
+    this.uploadUrl = `projects`
   }
 
   public save() {
@@ -44,15 +50,26 @@ export class ProjectCreateComponent {
         if (this.project?.id) {
           form.append('id', this.project?.id?.toString());
         }
-        form.append('categories', JSON.stringify(this.projectCategoryChipsComponent?.categoryControl?.value || []));
+        form.append(
+          'categories',
+          JSON.stringify(
+            this.projectCategoryChipsComponent?.categoryControl?.value || []
+          )
+        );
         form.append('difficulty', this.difficulty());
       };
       this.fileUploadComponent.uploader.uploadAll();
+
+      this.fileUploadComponent.uploader.response.subscribe(async (response) => {
+        console.log('=>(project-create.component.ts:63) response', response);
+
+        await this.router.navigate([`/projects/${response?.id}`], {state: {project: response}});
+      });
     }
   }
 
   difficultyChange($event: number) {
-   this.difficulty.set($event);
+    this.difficulty.set($event);
   }
 }
 

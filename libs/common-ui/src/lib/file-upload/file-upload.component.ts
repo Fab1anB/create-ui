@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
 import {take} from 'rxjs';
 
@@ -7,14 +7,17 @@ import {take} from 'rxjs';
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss'],
 })
-export class FileUploadComponent {
-  uploader: FileUploader;
-  hasBaseDropZoneOver: boolean;
-  response: string;
+export class FileUploadComponent implements OnInit {
+  uploader: FileUploader | undefined;
+  hasBaseDropZoneOver = false;
+  response: string | undefined;
 
-  constructor() {
+  @Input()
+  public url: string | undefined;
+
+  public ngOnInit() {
     this.uploader = new FileUploader({
-      url: 'http://localhost:3000/projects',
+      url: `http://localhost:3000/${this.url}`,
       disableMultipart: false,
     });
 

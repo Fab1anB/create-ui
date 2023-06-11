@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output,} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'create-ui-chips-search',
@@ -6,7 +6,6 @@ import {Component, EventEmitter, Input, Output,} from '@angular/core';
   styleUrls: ['./chips-search.component.scss'],
 })
 export class ChipsSearchComponent {
-
   @Output()
   public readonly selectCategory = new EventEmitter<string>();
 
