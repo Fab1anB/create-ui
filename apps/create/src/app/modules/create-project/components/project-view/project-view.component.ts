@@ -4,6 +4,7 @@ import {Project} from '../../models/project';
 import {firstValueFrom, map, Observable, of} from 'rxjs';
 import {ProjectApiService} from '../../services/project-api.service';
 import {ProjectStep} from "../../models/project-step";
+import {ProjectStepsService} from "../../services/project-steps.service";
 
 @Component({
   selector: 'create-ui-project-view',
@@ -13,7 +14,6 @@ import {ProjectStep} from "../../models/project-step";
 export class ProjectViewComponent {
   public isOwner = signal(false);
 
-  public steps: ProjectStep [] = [];
 
   public project$: Observable<Project> =
     this.router.getCurrentNavigation()?.extras.state?.['project'] != null
@@ -22,9 +22,12 @@ export class ProjectViewComponent {
           this.activatedRoute.snapshot.params['id']
         );
 
+  public steps$: Observable<ProjectStep []> = this.projectStepsService.getProjectSteps(this.activatedRoute.snapshot.params['id']);
+
   constructor(
     private router: Router,
     private projectApiService: ProjectApiService,
+    private projectStepsService: ProjectStepsService,
     private activatedRoute: ActivatedRoute
   ) {
     console.log(

@@ -1,16 +1,24 @@
 <mat-card *ngIf="project$ | async as project">
-  <img mat-card-image [src]="project.resultImage">
+  <img mat-card-image [src]="project.resultImage" />
   <mat-card-title> {{ project.title }} </mat-card-title>
   <mat-card-subtitle> {{ project.subtitle }}</mat-card-subtitle>
   <mat-card-actions>
     <div class="flex flex-wrap gap-1">
-      <mat-chip *ngFor="let category of project.categories || []">  {{category.title }}</mat-chip>
+      <mat-chip *ngFor="let category of project.categories || []">
+        {{ category.title }}</mat-chip
+      >
     </div>
-    <button mat-flat-button color="primary" (click)="addStep()">Add Step<mat-icon>edit</mat-icon> </button>
+    <button mat-flat-button color="primary" (click)="addStep()">
+      Add Step<mat-icon>edit</mat-icon>
+    </button>
   </mat-card-actions>
   <mat-card-content>
-    <div class="flex flex-wrap gap-1">
-      <create-ui-project-step-view *ngFor="let step of steps || []">  {{step.title }}</create-ui-project-step-view>
-    </div>
+
+      <create-ui-project-step-view
+        *ngFor="let step of steps$ | async"
+        [projectStep]="step"
+      ></create-ui-project-step-view
+      >
+
   </mat-card-content>
 </mat-card>
