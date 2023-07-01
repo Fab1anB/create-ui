@@ -13,12 +13,11 @@
     </button>
   </mat-card-actions>
   <mat-card-content>
-
+    <ng-container *ngFor="let step of steps$ | async; let index = index">
       <create-ui-project-step-view
-        *ngFor="let step of steps$ | async"
         [projectStep]="step"
-      ></create-ui-project-step-view
-      >
-
+        [index]="index"
+      ></create-ui-project-step-view>
+    </ng-container>
   </mat-card-content>
 </mat-card>

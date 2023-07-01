@@ -9,4 +9,7 @@ import {ProjectStep} from "../../models/project-step";
 export class ProjectStepViewComponent {
   @Input()
   public projectStep: ProjectStep | null = null;
+
+  @Input()
+  public index: number | null = null;
 }
